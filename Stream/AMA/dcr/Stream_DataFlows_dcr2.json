@@ -1,0 +1,72 @@
+"dataFlows": [
+    {
+        "streams": [
+            "Microsoft-Syslog"
+        ],
+        "destinations": [
+            "<WORKSPACE_NAME>" 
+        ],
+        "transformKql": "source | where SyslogMessage has \"metadata_smbmapping\" | extend data = parse_json(SyslogMessage) | extend uid = tostring(data.uid), id_orig_h = tostring(data['id.orig_h']), id_orig_p = toint(data['id.orig_p']), id_resp_h = tostring(data['id.resp_h']), id_resp_p = toint(data['id.resp_p']), id_ip_ver = tostring(data['id.ip_ver']), local_orig = tobool(data.local_orig), local_resp = tobool(data.local_resp), orig_hostname = tostring(data.orig_hostname), resp_hostname = tostring(data.resp_hostname), orig_huid = tostring(data.orig_huid), resp_huid = tostring(data.resp_huid), path = tostring(data.path), service = tostring(data.service), username = tostring(data.username), domain = tostring(data.domain), hostname = tostring(data.hostname), version = tostring(data.version), ts =  datetime_add('second', data.ts / 1000, datetime(1970-01-01)), orig_sluid = tostring(data.orig_sluid), resp_sluid = tostring(data.resp_sluid), sensor_uid = tostring(data.sensor_uid)",
+        "outputStream": "Custom-vectra_smbmapping_CL"
+    },
+    {
+        "streams": [
+            "Microsoft-Syslog"
+        ],
+        "destinations": [
+            "<WORKSPACE_NAME>" 
+        ],
+        "transformKql": "source | where SyslogMessage has \"metadata_beacon\" | extend data = parse_json(SyslogMessage) | extend id_orig_h = tostring(data['id.orig_h']), id_orig_p = toint(data['id.orig_p']), id_resp_h = tostring(data['id.resp_h']), id_resp_p = toint(data['id.resp_p']), id_ip_ver = tostring(data['id.ip_ver']), beacon_uid = tostring(data.beacon_uid), beacon_type = tostring(data.beacon_type), duration = tolong(data.duration), first_event_time =  datetime_add('second', data.first_event_time / 1000, datetime(1970-01-01)), ja3 = tostring(data.ja3), last_event_time =  datetime_add('second', data.last_event_time / 1000, datetime(1970-01-01)), local_orig = tobool(data.local_orig), local_resp = tobool(data.local_resp), orig_hostname = tostring(data.orig_hostname), orig_huid = tostring(data.orig_huid), orig_ip_bytes = tolong(data.orig_ip_bytes), proto = toint(data.proto), protoName = tostring(data.protoName), resp_domains = data.resp_domains, resp_ip_bytes = tolong(data.resp_ip_bytes), service = tostring(data.service), session_count = tolong(data.session_count), uid = tostring(data.uid), ts =  datetime_add('second', data.ts / 1000, datetime(1970-01-01)), orig_sluid = tostring(data.orig_sluid), resp_sluid = tostring(data.resp_sluid), sensor_uid = tostring(data.sensor_uid)",
+        "outputStream": "Custom-vectra_beacon_CL"
+    },
+    {
+        "streams": [
+            "Microsoft-Syslog"
+        ],
+        "destinations": [
+            "<WORKSPACE_NAME>" 
+        ],
+        "transformKql": "source | where SyslogMessage has \"metadata_radius\" | extend data = parse_json(SyslogMessage) | extend uid = tostring(data.uid), id_orig_h = tostring(data['id.orig_h']), id_orig_p = toint(data['id.orig_p']), id_resp_h = tostring(data['id.resp_h']), id_resp_p = toint(data['id.resp_p']), id_ip_ver = tostring(data['id.ip_ver']), account_input_octets = tolong(data.account_input_octets), account_input_packets = tolong(data.account_input_packets), delegated_ipv6_prefix = tostring(data.delegated_ipv6_prefix), reply_msg = tostring(data.reply_msg), src_display_name = tostring(data.src_display_name), nas_identifier = tostring(data.nas_identifier), framed_address = tostring(data.framed_address), nas_ip_address = tostring(data.nas_ip_address), password = tostring(data.password), framed_protocol = tolong(data.framed_protocol), logged = tobool(data.logged), src_luid_external = tobool(data.src_luid_external), idle_timeout = tolong(data.idle_timeout), reply_timestamp =  datetime_add('second', data.reply_timestamp / 1000, datetime(1970-01-01)), dst_luid_external = tobool(data.dst_luid_external), account_session_id = tostring(data.account_session_id), filter_id = tostring(data.filter_id), dst_host_luid = tostring(data.dst_host_luid), account_delay_time = tolong(data.account_delay_time), account_output_octets = tolong(data.account_output_octets), session_timeout = tolong(data.session_timeout), account_authentic = tolong(data.account_authentic), dst_display_name = tostring(data.dst_display_name), event_timestamp =  datetime_add('second', data.event_timestamp / 1000, datetime(1970-01-01)), framed_ipv6_prefix = tostring(data.framed_ipv6_prefix), mac = tostring(data.mac), nas_port_type = tolong(data.nas_port_type), result = tostring(data.result), src_luid = tostring(data.src_luid), framed_interface = tolong(data.framed_interface), account_output_gigawords = tolong(data.account_output_gigawords), account_session_time = tolong(data.account_session_time), accounting_session_id = tostring(data.accounting_session_id), account_input_gigawords = tolong(data.account_input_gigawords), dst_luid = tostring(data.dst_luid), framed_ip_address = tostring(data.framed_ip_address), src_host_luid = tostring(data.src_host_luid), tunnel_client = tostring(data.tunnel_client), account_output_packets = tolong(data.account_output_packets), nas_port = tolong(data.nas_port), ttl = tolong(data.ttl), radius_type = tostring(data.radius_type), service_type = tolong(data.service_type), connect_info = tostring(data.connect_info), password_seen = tobool(data.password_seen), nas_port_id = tostring(data.nas_port_id), calling_station_id = tostring(data.calling_station_id), username = tostring(data.username)",
+        "outputStream": "Custom-vectra_radius_CL"
+    },
+    {
+        "streams": [
+            "Microsoft-Syslog"
+        ],
+        "destinations": [
+            "<WORKSPACE_NAME>" 
+        ],
+        "transformKql": "source | where SyslogMessage has \"metadata_smtp\" | extend data = parse_json(SyslogMessage) | extend uid = tostring(data.uid), id_orig_h = tostring(data['id.orig_h']), id_orig_p = toint(data['id.orig_p']), id_resp_h = tostring(data['id.resp_h']), id_resp_p = toint(data['id.resp_p']), id_ip_ver = tostring(data['id.ip_ver']), local_orig = tobool(data.local_orig), local_resp = tobool(data.local_resp), orig_hostname = tostring(data.orig_hostname), resp_hostname = tostring(data.resp_hostname), orig_huid = tostring(data.orig_huid), resp_huid = tostring(data.resp_huid), orig_sluid = tostring(data.orig_sluid), resp_sluid = tostring(data.resp_sluid), version = toint(data.version), cc = tostring(data.cc), date_ =  datetime_add('second', data['date'] / 1000, datetime(1970-01-01)), from_ = tostring(data['from']), helo = tostring(data.helo), in_reply_to = tostring(data.in_reply_to), mail_from = tostring(data.mail_from), msgid = tostring(data.msgid), reply_to = tostring(data.reply_to), subject = tostring(data.subject), tls = tobool(data.tls), to_ = data['to'], rcpt_to = data.rcpt_to, useragent = tostring(data.useragent), x_originating_ip = tostring(data.x_originating_ip), first_received = tostring(data.first_received), second_received = tostring(data.second_received), spf_helo = tostring(data.spf_helo), dkim_status = tostring(data.dkim_status), dmarc_status = tostring(data.dmarc_status), spf_mailfrom = tostring(data.spf_mailfrom), ts =  datetime_add('second', data.ts / 1000, datetime(1970-01-01)), sensor_uid = tostring(data.sensor_uid)",
+        "outputStream": "Custom-vectra_smtp_CL"
+    },
+    {
+        "streams": [
+            "Microsoft-Syslog"
+        ],
+        "destinations": [
+            "<WORKSPACE_NAME>" 
+        ],
+        "transformKql": "source | where SyslogMessage has \"metadata_dhcp\" | extend data = parse_json(SyslogMessage) | extend uid = tostring(data.uid), mac = tostring(data.mac), assigned_ip = tostring(data.assigned_ip), trans_id = tolong(data.trans_id), lease_time = tolong(data.lease_time), dhcp_server_ip = tostring(data.dhcp_server_ip), orig_hostname = tostring(data.orig_hostname), dns_server_ips = tostring(data.dns_server_ips), ts =  datetime_add('second', data.ts / 1000, datetime(1970-01-01)), orig_sluid = tostring(data.orig_sluid), resp_sluid = tostring(data.resp_sluid), sensor_uid = tostring(data.sensor_uid)",
+        "outputStream": "Custom-vectra_dhcp_CL"
+    },
+    {
+        "streams": [
+            "Microsoft-Syslog"
+        ],
+        "destinations": [
+            "<WORKSPACE_NAME>" 
+        ],
+        "transformKql": "source | where SyslogMessage has \"metadata_rdp\" | extend data = parse_json(SyslogMessage) | extend uid = tostring(data.uid), id_orig_h = tostring(data['id.orig_h']), id_orig_p = toint(data['id.orig_p']), id_resp_h = tostring(data['id.resp_h']), id_resp_p = toint(data['id.resp_p']), id_ip_ver = tostring(data['id.ip_ver']), cookie = tostring(data.cookie), keyboard_layout = tostring(data.keyboard_layout), client_build = tostring(data.client_build), client_name = tostring(data.client_name), client_dig_protocol_id = tostring(data.client_dig_protocol_id), client_dig_product_id = tostring(data.client_dig_product_id), desktop_width = toint(data.desktop_width), desktop_height = toint(data.desktop_height), result = tostring(data.result), local_orig = tobool(data.local_orig), local_resp = tobool(data.local_resp), orig_hostname = tostring(data.orig_hostname), resp_hostname = tostring(data.resp_hostname), resp_huid = tostring(data.resp_huid), orig_huid = tostring(data.orig_huid), ts =  datetime_add('second', data.ts / 1000, datetime(1970-01-01)), orig_sluid = tostring(data.orig_sluid), resp_sluid = tostring(data.resp_sluid), sensor_uid = tostring(data.sensor_uid)",
+        "outputStream": "Custom-vectra_rdp_CL"
+    },
+    {
+        "streams": [
+            "Microsoft-Syslog"
+        ],
+        "destinations": [
+            "<WORKSPACE_NAME>" 
+        ],
+        "transformKql": "source | where SyslogMessage has \"metadata_smbfiles\" | extend data = parse_json(SyslogMessage) | extend uid = tostring(data.uid), id_orig_h = tostring(data['id.orig_h']), id_orig_p = toint(data['id.orig_p']), id_resp_h = tostring(data['id.resp_h']), id_resp_p = toint(data['id.resp_p']), id_ip_ver = tostring(data['id.ip_ver']), local_orig = tobool(data.local_orig), local_resp = tobool(data.local_resp), orig_hostname = tostring(data.orig_hostname), resp_hostname = tostring(data.resp_hostname), orig_huid = tostring(data.orig_huid), resp_huid = tostring(data.resp_huid), action = tostring(data.action), path = tostring(data.path), name = tostring(data.name), server_name = tostring(data.server_name), prev_name = tostring(data.prev_name), username = tostring(data.username), domain = tostring(data.domain), hostname = tostring(data.hostname), version = tostring(data.version), delete_on_close = tobool(data.delete_on_close), ts =  datetime_add('second', data.ts / 1000, datetime(1970-01-01)), orig_sluid = tostring(data.orig_sluid), resp_sluid = tostring(data.resp_sluid), sensor_uid = tostring(data.sensor_uid)",
+        "outputStream": "Custom-vectra_smbfiles_CL"
+    }
+]
