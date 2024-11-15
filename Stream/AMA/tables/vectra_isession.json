@@ -3,7 +3,7 @@
         "schema": {
             "name": "vectra_isession_CL",
             "columns": [
-				{
+				      {
                     "name": "TimeGenerated",
                     "type": "DateTime"
                 },
@@ -110,6 +110,58 @@
                 {
                     "name": "first_resp_orig_data_pkt",
                     "type": "String"
+                },
+                {
+                    "name": "ts",
+                    "type": "DateTime"
+                },
+                { 
+                  "name": "community_id",
+                  "type": "String"
+                },
+                { 
+                  "name": "metadata_type",
+                  "type": "String"
+                },
+                {
+                  "name": "resp_huid",
+                  "type": "String"
+                },
+                {
+                  "name": "orig_huid",
+                  "type": "String"
+                },
+                        {
+                  "name": "orig_sluid",
+                  "type": "String"
+                },
+                {
+                  "name": "resp_sluid",
+                  "type": "String"
+                },
+                {
+                  "name": "sensor_uid",
+                  "type": "String"
+                },
+                {
+                  "name": "orig_hostname",
+                  "type": "String"
+                },
+                {
+                  "name": "resp_hostname",
+                  "type": "String"
+                },
+                {
+                  "name": "local_orig",
+                  "type": "Boolean"
+                },
+                {
+                  "name": "local_resp",
+                  "type": "Boolean"
+                },
+                {
+                  "name": "dir_confidence",
+                  "type": "Int"
                 }
             ]
         }

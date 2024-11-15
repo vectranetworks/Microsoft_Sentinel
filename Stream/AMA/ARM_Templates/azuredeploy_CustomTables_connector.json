@@ -48,6 +48,7 @@
                           {"name": "local_orig", "type": "Boolean"},
                           {"name": "local_resp", "type": "Boolean"},
                           {"name": "orig_hostname", "type": "String"},
+                          {"name": "resp_hostname", "type": "String"},
                           {"name": "orig_huid", "type": "String"},
                           {"name": "orig_ip_bytes", "type": "Long"},
                           {"name": "proto", "type": "Int"},
@@ -60,7 +61,11 @@
                           {"name": "ts", "type": "DateTime"},
                           {"name": "orig_sluid", "type": "String"},
                           {"name": "resp_sluid", "type": "String"},
-                          {"name": "sensor_uid", "type": "String"}
+                          {"name": "resp_huid", "type": "String"},
+                          {"name": "sensor_uid", "type": "String"},
+                          {"name": "community_id", "type": "String"},
+                          {"name": "metadata_type", "type": "String"}
+
                       ]
                   }
               }
@@ -97,7 +102,9 @@
                     {"name": "ts", "type": "DateTime"},
                     {"name": "orig_sluid", "type": "String"},
                     {"name": "resp_sluid", "type": "String"},
-                    {"name": "sensor_uid", "type": "String"}
+                    {"name": "sensor_uid", "type": "String"},
+                    {"name": "community_id", "type": "String"},
+                    {"name": "metadata_type", "type": "String"}
                   ]
                 }
               }
@@ -122,8 +129,6 @@
                     {"name": "orig_hostname", "type": "String"},
                     {"name": "dns_server_ips", "type": "String"},
                     {"name": "ts", "type": "DateTime"},
-                    {"name": "orig_sluid", "type": "String"},
-                    {"name": "resp_sluid", "type": "String"},
                     {"name": "sensor_uid", "type": "String"}
                   ]
                 }
@@ -148,6 +153,7 @@
                     {"name": "id_ip_ver", "type": "String"},
                     {"name": "method", "type": "String"},
                     {"name": "host", "type": "String"},
+                    {"name": "host_multihomed", "type": "Boolean"},
                     {"name": "uri", "type": "String"},
                     {"name": "referrer", "type": "String"},
                     {"name": "user_agent", "type": "String"},
@@ -155,13 +161,35 @@
                     {"name": "response_body_len", "type": "Long"},
                     {"name": "status_code", "type": "Int"},
                     {"name": "status_msg", "type": "String"},
-                    {"name": "ts", "type": "DateTime"},
+                    {"name": "resp_filename", "type": "String"},
+                    {"name": "proxied", "type": "String"},
+                    {"name": "orig_mime_types", "type": "Dynamic"},
+                    {"name": "resp_mime_types", "type": "Dynamic"},
+                    {"name": "cookie", "type": "String"},
+                    {"name": "response_content_disposition", "type": "String"},
+                    {"name": "request_header_count", "type": "Long"},
+                    {"name": "response_header_count", "type": "Long"},
+                    {"name": "cookie_vars", "type": "String"},
+                    {"name": "orig_ip_bytes", "type": "Long"},
+                    {"name": "resp_ip_bytes", "type": "Long"},
+                    {"name": "orig_pkts", "type": "Long"},
+                    {"name": "resp_pkts", "type": "Long"},
+                    {"name": "request_cache_control", "type": "String"},
+                    {"name": "response_cache_control", "type": "String"},
+                    {"name": "response_expires", "type": "String"},
                     {"name": "orig_hostname", "type": "String"},
                     {"name": "resp_hostname", "type": "String"},
                     {"name": "orig_huid", "type": "String"},
                     {"name": "resp_huid", "type": "String"},
                     {"name": "local_orig", "type": "Boolean"},
-                    {"name": "local_resp", "type": "Boolean"}
+                    {"name": "local_resp", "type": "Boolean"},
+                    {"name": "is_proxied", "type": "Boolean"},
+                    {"name": "ts", "type": "DateTime"},
+                    {"name": "orig_sluid", "type": "String"},
+                    {"name": "resp_sluid", "type": "String"},
+                    {"name": "sensor_uid", "type": "String"},
+                    {"name": "community_id", "type": "String"},
+                    {"name": "metadata_type", "type": "String"}
                   ]
                 }
               }
@@ -204,9 +232,18 @@
                     {"name": "first_orig_resp_data_pkt", "type": "String"},
                     {"name": "first_resp_orig_data_pkt", "type": "String"},
                     {"name": "ts", "type": "DateTime"},
+                    {"name": "community_id", "type": "String"},
+                    {"name": "metadata_type", "type": "String"},
+                    {"name": "local_orig", "type": "Boolean"},
+                    {"name": "local_resp", "type": "Boolean"},
+                    {"name": "orig_hostname", "type": "String"},
+                    {"name": "resp_hostname", "type": "String"},
+                    {"name": "resp_huid", "type": "String"},
+                    {"name": "orig_huid", "type": "String"},
                     {"name": "orig_sluid", "type": "String"},
                     {"name": "resp_sluid", "type": "String"},
-                    {"name": "sensor_uid", "type": "String"}
+                    {"name": "sensor_uid", "type": "String"},
+                    {"name": "dir_confidence", "type": "Int"}
                   ]
                 }
               }
@@ -248,7 +285,19 @@
                     {"name": "total_answers", "type": "Int"},
                     {"name": "total_replies", "type": "Int"},
                     {"name": "saw_query", "type": "Boolean"},
-                    {"name": "saw_reply", "type": "Boolean"}
+                    {"name": "saw_reply", "type": "Boolean"},
+                    {"name": "ts", "type": "DateTime"},
+                    {"name": "community_id", "type": "String"},
+                    {"name": "metadata_type", "type": "String"},
+                    {"name": "local_orig", "type": "Boolean"},
+                    {"name": "local_resp", "type": "Boolean"},
+                    {"name": "orig_hostname", "type": "String"},
+                    {"name": "resp_hostname", "type": "String"},
+                    {"name": "resp_huid", "type": "String"},
+                    {"name": "orig_huid", "type": "String"},
+                    {"name": "orig_sluid", "type": "String"},
+                    {"name": "resp_sluid", "type": "String"},
+                    {"name": "sensor_uid", "type": "String"}
                   ]
                 }
               }
@@ -268,7 +317,7 @@
                     {"name": "id_orig_h", "type": "String"},
                     {"name": "id_orig_p", "type": "Int"},
                     {"name": "id_resp_h", "type": "String"},
-                    {"name": "id_resp_p", "type": "Int"},
+                    {"name": "id_resp_p", "type": "Int"}, 
                     {"name": "id_ip_ver", "type": "String"},
                     {"name": "orig_hostname", "type": "String"},
                     {"name": "resp_hostname", "type": "String"},
@@ -284,7 +333,9 @@
                     {"name": "ts", "type": "DateTime"},
                     {"name": "orig_sluid", "type": "String"},
                     {"name": "resp_sluid", "type": "String"},
-                    {"name": "sensor_uid", "type": "String"}
+                    {"name": "sensor_uid", "type": "String"},
+                    {"name": "community_id", "type": "String"},
+                    {"name": "metadata_type", "type": "String"}
                   ]
                 }
               }
@@ -326,7 +377,14 @@
                     {"name": "resp_sluid", "type": "String"},
                     {"name": "sensor_uid", "type": "String"},
                     {"name": "req_cipher", "type": "Dynamic"},
-                    {"name": "rep_cipher", "type": "String"}
+                    {"name": "rep_cipher", "type": "String"},
+                    {"name": "community_id", "type": "String"},
+                    {"name": "metadata_type", "type": "String"},
+                    {"name": "account_privilege", "type": "Int"},
+                    {"name": "service_privilege", "type": "Int"},
+                    {"name": "account_uid", "type": "String"},
+                    {"name": "service_uid", "type": "String"},
+                    {"name": "data_source", "type": "String"}
                   ]
                 }
               }
@@ -375,7 +433,9 @@
                     {"name": "ts", "type": "DateTime"},
                     {"name": "orig_sluid", "type": "String"},
                     {"name": "resp_sluid", "type": "String"},
-                    {"name": "sensor_uid", "type": "String"}
+                    {"name": "sensor_uid", "type": "String"},
+                    {"name": "community_id", "type": "String"},
+                    {"name": "metadata_type", "type": "String"}
                   ]
                 }
               }
@@ -444,7 +504,19 @@
                     {"name": "password_seen", "type": "Boolean"},
                     {"name": "nas_port_id", "type": "String"},
                     {"name": "calling_station_id", "type": "String"},
-                    {"name": "username", "type": "String"}
+                    {"name": "username", "type": "String"},
+                    {"name": "community_id", "type": "String"},
+                    {"name": "metadata_type", "type": "String"},
+                    {"name": "local_orig", "type": "Boolean"},
+                    {"name": "local_resp", "type": "Boolean"},
+                    {"name": "orig_hostname", "type": "String"},
+                    {"name": "resp_hostname", "type": "String"},
+                    {"name": "resp_huid", "type": "String"},
+                    {"name": "orig_huid", "type": "String"},
+                    {"name": "orig_sluid", "type": "String"},
+                    {"name": "resp_sluid", "type": "String"},
+                    {"name": "sensor_uid", "type": "String"},
+                    {"name": "ts", "type": "DateTime"}
                   ]
                 }
               }
@@ -484,7 +556,9 @@
                     {"name": "ts", "type": "DateTime"},
                     {"name": "orig_sluid", "type": "String"},
                     {"name": "resp_sluid", "type": "String"},
-                    {"name": "sensor_uid", "type": "String"}
+                    {"name": "sensor_uid", "type": "String"},
+                    {"name": "community_id", "type": "String"},
+                    {"name": "metadata_type", "type": "String"}
                   ]
                 }
               }
@@ -505,6 +579,7 @@
                     {"name": "id_orig_p", "type": "Int"},
                     {"name": "id_resp_h", "type": "String"},
                     {"name": "id_resp_p", "type": "Int"},
+                    {"name": "id_ip_ver", "type": "String"},
                     {"name": "action", "type": "String"},
                     {"name": "path", "type": "String"},
                     {"name": "name", "type": "String"},
@@ -515,7 +590,18 @@
                     {"name": "hostname", "type": "String"},
                     {"name": "version", "type": "String"},
                     {"name": "delete_on_close", "type": "Boolean"},
-                    {"name": "ts", "type": "DateTime"}
+                    {"name": "ts", "type": "DateTime"},
+                    {"name": "local_orig", "type": "Boolean"},
+                    {"name": "local_resp", "type": "Boolean"},
+                    {"name": "orig_hostname", "type": "String"},
+                    {"name": "resp_hostname", "type": "String"},
+                    {"name": "resp_huid", "type": "String"},
+                    {"name": "orig_huid", "type": "String"},
+                    {"name": "orig_sluid", "type": "String"},
+                    {"name": "resp_sluid", "type": "String"},
+                    {"name": "sensor_uid", "type": "String"},
+                    {"name": "community_id", "type": "String"},
+                    {"name": "metadata_type", "type": "String"}
                   ]
                 }
               }
@@ -536,13 +622,25 @@
                     {"name": "id_orig_p", "type": "Int"},
                     {"name": "id_resp_h", "type": "String"},
                     {"name": "id_resp_p", "type": "Int"},
+                    {"name": "id_ip_ver", "type": "String"},
                     {"name": "path", "type": "String"},
                     {"name": "service", "type": "String"},
                     {"name": "username", "type": "String"},
                     {"name": "domain", "type": "String"},
                     {"name": "hostname", "type": "String"},
                     {"name": "version", "type": "String"},
-                    {"name": "ts", "type": "DateTime"}
+                    {"name": "ts", "type": "DateTime"},
+                    {"name": "local_orig", "type": "Boolean"},
+                    {"name": "local_resp", "type": "Boolean"},
+                    {"name": "orig_hostname", "type": "String"},
+                    {"name": "resp_hostname", "type": "String"},
+                    {"name": "resp_huid", "type": "String"},
+                    {"name": "orig_huid", "type": "String"},
+                    {"name": "orig_sluid", "type": "String"},
+                    {"name": "resp_sluid", "type": "String"},
+                    {"name": "sensor_uid", "type": "String"},
+                    {"name": "community_id", "type": "String"},
+                    {"name": "metadata_type", "type": "String"}
                   ]
                 }
               }
@@ -563,6 +661,16 @@
                     {"name": "id_orig_p", "type": "Int"},
                     {"name": "id_resp_h", "type": "String"},
                     {"name": "id_resp_p", "type": "Int"},
+                    {"name": "id_ip_ver", "type": "String"},
+                    {"name": "local_orig", "type": "Boolean"},
+                    {"name": "local_resp", "type": "Boolean"},
+                    {"name": "orig_hostname", "type": "String"},
+                    {"name": "resp_hostname", "type": "String"},
+                    {"name": "orig_huid", "type": "String"},
+                    {"name": "resp_huid", "type": "String"},
+                    {"name": "orig_sluid", "type": "String"},
+                    {"name": "resp_sluid", "type": "String"},
+                    {"name": "version", "type": "Int"},
                     {"name": "cc", "type": "String"},
                     {"name": "date_", "type": "DateTime"},
                     {"name": "from_", "type": "String"},
@@ -579,10 +687,14 @@
                     {"name": "x_originating_ip", "type": "String"},
                     {"name": "first_received", "type": "String"},
                     {"name": "second_received", "type": "String"},
+                    {"name": "spf_helo", "type": "String"},
                     {"name": "dkim_status", "type": "String"},
                     {"name": "dmarc_status", "type": "String"},
                     {"name": "spf_mailfrom", "type": "String"},
-                    {"name": "ts", "type": "DateTime"}
+                    {"name": "ts", "type": "DateTime"},
+                    {"name": "sensor_uid", "type": "String"},
+                    {"name": "community_id", "type": "String"},
+                    {"name": "metadata_type", "type": "String"}
                   ]
                 }
               }
@@ -603,6 +715,13 @@
                     {"name": "id_orig_p", "type": "Int"},
                     {"name": "id_resp_h", "type": "String"},
                     {"name": "id_resp_p", "type": "Int"},
+                    {"name": "id_ip_ver", "type": "String"},
+                    {"name": "local_orig", "type": "Boolean"},
+                    {"name": "local_resp", "type": "Boolean"},
+                    {"name": "orig_hostname", "type": "String"},
+                    {"name": "resp_hostname", "type": "String"},
+                    {"name": "orig_huid", "type": "String"},
+                    {"name": "resp_huid", "type": "String"},
                     {"name": "version", "type": "Int"},
                     {"name": "client", "type": "String"},
                     {"name": "server", "type": "String"},
@@ -614,7 +733,12 @@
                     {"name": "host_key", "type": "String"},
                     {"name": "hassh", "type": "String"},
                     {"name": "hasshServer", "type": "String"},
-                    {"name": "ts", "type": "DateTime"}
+                    {"name": "ts", "type": "DateTime"},
+                    {"name": "orig_sluid", "type": "String"},
+                    {"name": "resp_sluid", "type": "String"},
+                    {"name": "sensor_uid", "type": "String"},
+                    {"name": "community_id", "type": "String"},
+                    {"name": "metadata_type", "type": "String"}
                   ]
                 }
               }
@@ -635,14 +759,113 @@
                     {"name": "id_orig_p", "type": "Int"},
                     {"name": "id_resp_h", "type": "String"},
                     {"name": "id_resp_p", "type": "Int"},
+                    {"name": "id_ip_ver", "type": "String"},
+                    {"name": "local_orig", "type": "Boolean"},
+                    {"name": "local_resp", "type": "Boolean"},
+                    {"name": "orig_hostname", "type": "String"},
+                    {"name": "resp_hostname", "type": "String"},
+                    {"name": "orig_huid", "type": "String"},
+                    {"name": "resp_huid", "type": "String"},
                     {"name": "server_name", "type": "String"},
+                    {"name": "next_protocol", "type": "String"},
+                    {"name": "established", "type": "Boolean"},
                     {"name": "cipher", "type": "String"},
                     {"name": "curve", "type": "String"},
+                    {"name": "version_num", "type": "Int"},
                     {"name": "version", "type": "String"},
                     {"name": "issuer", "type": "String"},
                     {"name": "subject", "type": "String"},
+                    {"name": "client_issuer", "type": "String"},
+                    {"name": "client_subject", "type": "String"},
+                    {"name": "client_curve_num", "type": "Dynamic"},
+                    {"name": "client_ec_point_format", "type": "Dynamic"},
+                    {"name": "client_extension", "type": "Dynamic"},
+                    {"name": "client_version", "type": "String"},
+                    {"name": "client_version_num", "type": "Int"},
                     {"name": "ja3", "type": "String"},
+                    {"name": "server_extensions", "type": "Dynamic"},
                     {"name": "ja3s", "type": "String"},
+                    {"name": "ts", "type": "DateTime"},
+                    {"name": "orig_sluid", "type": "String"},
+                    {"name": "resp_sluid", "type": "String"},
+                    {"name": "sensor_uid", "type": "String"},
+                    {"name": "community_id", "type": "String"},
+                    {"name": "metadata_type", "type": "String"}
+                  ]
+                }
+              }
+            },
+            {
+              "type": "Microsoft.OperationalInsights/workspaces/tables",
+              "apiVersion": "2022-10-01",
+              "name": "[concat(parameters('workspaceName'),'/vectra_match_CL')]",
+              "properties": {
+                "retentionInDays": 30,
+                "plan": "Analytics",
+                "schema": {
+                  "name": "vectra_match_CL",
+                  "columns": [
+                    {"name": "TimeGenerated", "type": "DateTime"},
+                    {"name": "community_id", "type": "String"},
+                    {"name": "eve_json_alert_action", "type": "String"},
+                    {"name": "eve_json_alert_category", "type": "String"},
+                    {"name": "eve_json_alert_gid", "type": "Int"},
+                    {"name": "eve_json_alert_metadata_attack_target", "type": "Dynamic"},
+                    {"name": "eve_json_alert_metadata_created_at", "type": "Dynamic"},
+                    {"name": "eve_json_alert_metadata_deployment", "type": "Dynamic"},
+                    {"name": "eve_json_alert_metadata_signature_severity", "type": "Dynamic"},
+                    {"name": "eve_json_alert_metadata_updated_at", "type": "Dynamic"},
+                    {"name": "eve_json_alert_rev", "type": "Int"},
+                    {"name": "eve_json_alert_severity", "type": "Int"},
+                    {"name": "eve_json_alert_signature", "type": "String"},
+                    {"name": "eve_json_alert_signature_id", "type": "Int"},
+                    {"name": "eve_json_app_proto", "type": "String"},
+                    {"name": "eve_json_dest_ip", "type": "String"},
+                    {"name": "eve_json_dest_port", "type": "Int"},
+                    {"name": "eve_json_direction", "type": "String"},
+                    {"name": "eve_json_dns_query_id", "type": "Int"},
+                    {"name": "eve_json_dns_query_rrname", "type": "String"},
+                    {"name": "eve_json_dns_query_rrtype", "type": "String"},
+                    {"name": "eve_json_dns_query_tx_id", "type": "Int"},
+                    {"name": "eve_json_dns_query_type", "type": "String"},
+                    {"name": "eve_json_event_type", "type": "String"},
+                    {"name": "eve_json_flow_bytes_toclient", "type": "Int"},
+                    {"name": "eve_json_flow_bytes_toserver", "type": "Int"},
+                    {"name": "eve_json_flow_dest_ip", "type": "String"},
+                    {"name": "eve_json_flow_dest_port", "type": "Int"},
+                    {"name": "eve_json_flow_pkts_toclient", "type": "Int"},
+                    {"name": "eve_json_flow_pkts_toserver", "type": "Int"},
+                    {"name": "eve_json_flow_src_ip", "type": "String"},
+                    {"name": "eve_json_flow_src_port", "type": "Int"},
+                    {"name": "eve_json_flow_start", "type": "DateTime"},
+                    {"name": "eve_json_flow_id", "type": "Long"},
+                    {"name": "eve_json_packet", "type": "String"},
+                    {"name": "eve_json_packet_info_linktype", "type": "Int"},
+                    {"name": "eve_json_payload", "type": "String"},
+                    {"name": "eve_json_payload_printable", "type": "String"},
+                    {"name": "eve_json_pkt_src", "type": "String"},
+                    {"name": "eve_json_proto", "type": "String"},
+                    {"name": "eve_json_src_ip", "type": "String"},
+                    {"name": "eve_json_src_port", "type": "Int"},
+                    {"name": "eve_json_stream", "type": "Int"},
+                    {"name": "eve_json_timestamp", "type": "DateTime"},
+                    {"name": "eve_json_tx_id", "type": "Int"},
+                    {"name": "eve_json_vlan", "type": "Dynamic"},
+                    {"name": "id_ip_ver", "type": "String"},
+                    {"name": "id_orig_h", "type": "String"},
+                    {"name": "id_orig_p", "type": "Int"},
+                    {"name": "id_resp_h", "type": "String"},
+                    {"name": "id_resp_p", "type": "Int"},
+                    {"name": "local_orig", "type": "Boolean"},
+                    {"name": "local_resp", "type": "Boolean"},
+                    {"name": "metadata_type", "type": "String"},
+                    {"name": "orig_hostname", "type": "String"},
+                    {"name": "orig_huid", "type": "String"},
+                    {"name": "orig_sluid", "type": "String"},
+                    {"name": "resp_hostname", "type": "String"},
+                    {"name": "resp_huid", "type": "String"},
+                    {"name": "resp_sluid", "type": "String"},
+                    {"name": "sensor_uid", "type": "String"},
                     {"name": "ts", "type": "DateTime"}
                   ]
                 }
@@ -664,11 +887,19 @@
                     {"name": "id_orig_p", "type": "Int"},
                     {"name": "id_resp_h", "type": "String"},
                     {"name": "id_resp_p", "type": "Int"},
+                    {"name": "id_ip_ver", "type": "String"},
+                    {"name": "local_orig", "type": "Boolean"},
+                    {"name": "local_resp", "type": "Boolean"},
+                    {"name": "orig_hostname", "type": "String"},
+                    {"name": "resp_hostname", "type": "String"},
+                    {"name": "orig_huid", "type": "String"},
+                    {"name": "resp_huid", "type": "String"},
                     {"name": "self_issued", "type": "Boolean"},
                     {"name": "version", "type": "Int"},
                     {"name": "serial", "type": "String"},
                     {"name": "subject", "type": "String"},
                     {"name": "issuer", "type": "String"},
+                    {"name": "cn", "type": "String"},
                     {"name": "not_valid_before", "type": "DateTime"},
                     {"name": "not_valid_after", "type": "DateTime"},
                     {"name": "key_alg", "type": "String"},
@@ -678,11 +909,18 @@
                     {"name": "exponent", "type": "String"},
                     {"name": "curve", "type": "String"},
                     {"name": "ca", "type": "Boolean"},
+                    {"name": "path_len", "type": "String"},
                     {"name": "san_dns", "type": "Dynamic"},
                     {"name": "san_email", "type": "Dynamic"},
                     {"name": "san_ip", "type": "Dynamic"},
                     {"name": "san_uri", "type": "Dynamic"},
-                    {"name": "ts", "type": "DateTime"}
+                    {"name": "other_fields", "type": "Boolean"},
+                    {"name": "ts", "type": "DateTime"},
+                    {"name": "orig_sluid", "type": "String"},
+                    {"name": "resp_sluid", "type": "String"},
+                    {"name": "sensor_uid", "type": "String"},
+                    {"name": "community_id", "type": "String"},
+                    {"name": "metadata_type", "type": "String"}
                   ]
                 }
               }

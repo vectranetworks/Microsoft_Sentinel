@@ -222,6 +222,54 @@
                 {
                     "name": "username",
                     "type": "String"
+                },
+                { 
+                  "name": "community_id",
+                  "type": "String"
+                },
+                { 
+                  "name": "metadata_type",
+                  "type": "String"
+                },
+                {
+                  "name": "orig_hostname",
+                  "type": "String"
+                },
+                {
+                  "name": "resp_hostname",
+                  "type": "String"
+                },
+                {
+                  "name": "resp_huid",
+                  "type": "String"
+                },
+                {
+                  "name": "orig_huid",
+                  "type": "String"
+                },
+                        {
+                  "name": "orig_sluid",
+                  "type": "String"
+                },
+                {
+                  "name": "resp_sluid",
+                  "type": "String"
+                },
+                {
+                  "name": "sensor_uid",
+                  "type": "String"
+                },
+                {
+                  "name": "local_orig",
+                  "type": "Boolean"
+                },
+                {
+                  "name": "local_resp",
+                  "type": "Boolean"
+                },
+                {
+                    "name": "ts",
+                    "type": "DateTime"
                 }
             ]
         }
