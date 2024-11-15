@@ -92,6 +92,10 @@
                     "type": "Int"
                 },
                 {
+                    "name": "account_privilege",
+                    "type": "Int"
+                },
+                {
                     "name": "ts",
                     "type": "DateTime"
                 },
@@ -114,6 +118,30 @@
                 {
                     "name": "rep_cipher",
                     "type": "String"
+                },
+                { 
+                  "name": "community_id",
+                  "type": "String"
+                },
+                { 
+                  "name": "metadata_type",
+                  "type": "String"
+                },
+                { 
+                  "name": "account_uid",
+                  "type": "String"
+                },
+                { 
+                  "name": "service_uid",
+                  "type": "String"
+                },
+                { 
+                  "name": "service_privilege",
+                  "type": "Int"
+                },
+                { 
+                  "name": "data_source",
+                  "type": "String"
                 }
             ]
         }

@@ -44,14 +44,6 @@
                     "type": "DateTime"
                 },
                 {
-                    "name": "orig_sluid",
-                    "type": "String"
-                },
-                {
-                    "name": "resp_sluid",
-                    "type": "String"
-                },
-                {
                     "name": "sensor_uid",
                     "type": "String"
                 }

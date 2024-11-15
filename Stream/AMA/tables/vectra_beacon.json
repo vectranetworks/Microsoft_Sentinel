@@ -64,6 +64,10 @@
                     "type": "String"
                 },
                 {
+                    "name": "resp_hostname",
+                    "type": "String"
+                },
+                {
                     "name": "orig_huid",
                     "type": "String"
                 },
@@ -112,7 +116,19 @@
                     "type": "String"
                 },
                 {
+                    "name": "resp_huid",
+                    "type": "String"
+                },
+                {
                     "name": "sensor_uid",
+                    "type": "String"
+                },
+                { 
+                    "name": "community_id",
+                    "type": "String"
+                },
+                { 
+                    "name": "metadata_type",
                     "type": "String"
                 }
             ]
